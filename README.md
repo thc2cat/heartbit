@@ -1,12 +1,26 @@
 # go-icmp-status
 
+go-icmp-status is a command-line tool designed for network monitoring.
+
+It takes a list of IP addresses or hostnames as input and periodically pings them using ICMP (ping).
+
+Unlike traditional ping utilities that flood the console with output, go-icmp-status is designed for quiet monitoring.
+
+It only prints output when a monitored host's status changes.
+
+Specifically, it reports when a host becomes unreachable (packet loss or completely down) or when a previously unreachable host comes back online.
+
+This concise, event-driven reporting makes go-icmp-status ideal for unattended monitoring and integration with alerting systems, allowing administrators to focus on actual network issues rather than sifting through constant ping output.
+
+It can be configured to adjust ping intervals and timeout,  providing more flexible control over sensitivity and responsiveness.
+
 Very simple tool that keep sending icmp packet to a list of ipv4 or ipv6 hosts, and display flip/flap icmp status changes, and packet loss.
 
-Original code from [github.com/digineo/go-ping/cmd/ping-monitor](https://github.com/digineo/go-ping/tree/master/cmd/ping-monitor)
+Original idea code stolen from [github.com/digineo/go-ping/cmd/ping-monitor](https://github.com/digineo/go-ping/tree/master/cmd/ping-monitor)
 
-* Need root rights on linux for sending icmp packets ( or sudo, or chown root `binary` , chmod u+s `binary` after build )
+* It Need root rights on linux for sending icmp packets ( or sudo, or chown root `binary` , chmod u+s `binary` after build )
 
-* Go build
+## Go build
 
 ```shell
 > git clone https://github.com/thc2cat/go-icmp-status 
@@ -15,7 +29,7 @@ Original code from [github.com/digineo/go-ping/cmd/ping-monitor](https://github.
 > go build
 ```
 
-* Options
+## Options
 
 ```shell
 v0.11 $ ./go-icmp-status.exe 
@@ -44,13 +58,13 @@ Usage: C:\dev\src\projects\go-icmp-status\go-icmp-status.exe [options] [hosts...
 
 ```
 
-* monitoring a list of hosts from a file :
+## monitoring a list of hosts from a file
 
 ```shell
 go-icmp-status -pingInterval 5s -r hosts.txt
 ```
 
-* Colored output exemple (v7) with multiple names in cli
+## Colored output exemple (v7) with multiple names in cli
 
 ![ipv6 loss](ipv6-loss.png)
 
