@@ -1,16 +1,16 @@
-# go-icmp-status
+# heartbit
 
-go-icmp-status is a command-line tool designed for network monitoring.
+heartbit is a command-line tool designed for network monitoring.
 
-It takes a list of IP addresses or hostnames as input and periodically pings them using ICMP (ping).
+It takes a list of IP addresses or hostname as input and periodically pings them using ICMP (ping).
 
-Unlike traditional ping utilities that flood the console with output, go-icmp-status is designed for quiet monitoring.
+Unlike traditional ping utilities that flood the console with output, heartbit is designed for quiet monitoring.
 
 It only prints output when a monitored host's status changes.
 
 Specifically, it reports when a host becomes unreachable (packet loss or completely down) or when a previously unreachable host comes back online.
 
-This concise, event-driven reporting makes go-icmp-status ideal for unattended monitoring and integration with alerting systems, allowing administrators to focus on actual network issues rather than sifting through constant ping output.
+This concise, event-driven reporting makes heartbit ideal for unattended monitoring and integration with alerting systems, allowing administrators to focus on actual network issues rather than sifting through constant ping output.
 
 It can be configured to adjust ping intervals and timeout,  providing more flexible control over sensitivity and responsiveness.
 
@@ -23,8 +23,8 @@ Original idea code stolen from [github.com/digineo/go-ping/cmd/ping-monitor](htt
 ## Go build
 
 ```shell
-> git clone https://github.com/thc2cat/go-icmp-status 
-> cd go-icmp-status 
+> git clone https://github.com/thc2cat/heartbit 
+> cd heartbit 
 > go mod tidy 
 > go build
 ```
@@ -32,8 +32,8 @@ Original idea code stolen from [github.com/digineo/go-ping/cmd/ping-monitor](htt
 ## Options
 
 ```shell
-v0.11 $ ./go-icmp-status.exe 
-Usage: C:\dev\src\projects\go-icmp-status\go-icmp-status.exe [options] [hosts...]
+v0.11 $ ./heartbit.exe 
+Usage: C:\dev\src\projects\heartbit\heartbit.exe [options] [hosts...]
   -dateFormat string
         log date format (default "2006-01-02 15:04:05")
   -logToSyslog
@@ -61,7 +61,7 @@ Usage: C:\dev\src\projects\go-icmp-status\go-icmp-status.exe [options] [hosts...
 ## monitoring a list of hosts from a file
 
 ```shell
-go-icmp-status -pingInterval 5s -r hosts.txt
+heartbit -pingInterval 5s -r hosts.txt
 ```
 
 ## Colored output exemple (v7) with multiple names in cli
