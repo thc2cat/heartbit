@@ -2,6 +2,8 @@
 
 heartbit is a command-line tool designed for network monitoring.
 
+![docs/Heartbit.png](docs/Heartbit.png)
+
 It takes a list of IP addresses or hostname as input and periodically pings them using ICMP (ping).
 
 Unlike traditional ping utilities that flood the console with output, heartbit is designed for quiet monitoring.
